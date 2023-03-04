@@ -1,5 +1,10 @@
 import Card from './Card/Card';
+import { Wrapper } from './Card/Card.styled';
 
 export const App = () => {
-  return <Card />;
+  return (
+    <Wrapper>
+      <Card />
+    </Wrapper>
+  );
 };
