@@ -114,3 +114,10 @@ export const StyledButton = styled.button`
     color: #ffffff;
   }
 `;
+
+export const Wrapper = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 20px;
+`;
