@@ -1,0 +1,59 @@
+import React, { useEffect, useState } from 'react';
+import {
+  Avatar,
+  AvatarWrapper,
+  BackImg,
+  HiddenTitle,
+  Line,
+  List,
+  StyledButton,
+  TweetCard,
+  UserInfo,
+} from './Card.styled';
+import logo from '../../images/logo.png';
+import avatar from '../../images/Hansel.png';
+import { load, save } from '../../services/storage';
+
+const Card = () => {
+  const [following, setFollowing] = useState(load('stats').following || false);
+  const [followers, setFollowers] = useState(load('stats').followers || 100500);
+
+  useEffect(() => {
+    save('stats', { following, followers });
+  }, [followers, following]);
+
+  const handleFollow = () => {
+    if (following) {
+      setFollowing(false);
+      setFollowers(followers - 1);
+    } else {
+      setFollowing(true);
+      setFollowers(followers + 1);
+    }
+  };
+
+  return (
+    <TweetCard>
+      <BackImg>
+        <img src={logo} alt="logo" />
+      </BackImg>
+      <UserInfo>
+        <Line>
+          <AvatarWrapper>
+            <Avatar src={avatar} alt="avatar" />
+          </AvatarWrapper>
+        </Line>
+        <HiddenTitle>Username</HiddenTitle>
+        <List>
+          <li>{777} tweets</li>
+          <li>{followers.toLocaleString()} followers</li>
+        </List>
+        <StyledButton type="button" onClick={handleFollow} following={following}>
+          {following ? 'Following' : 'Follow'}
+        </StyledButton>
+      </UserInfo>
+    </TweetCard>
+  );
+};
+
+export default Card;
