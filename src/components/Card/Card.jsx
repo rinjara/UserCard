@@ -14,9 +14,6 @@ import logo from '../../images/logo.png';
 import avatar from '../../images/Hansel.png';
 import { load, save } from '../../services/storage';
 
-// load('stats').following ||
-//   load('stats').followers ||
-
 const Card = () => {
   const [following, setFollowing] = useState(loadFollowing());
   const [followers, setFollowers] = useState(loadFollowers());
