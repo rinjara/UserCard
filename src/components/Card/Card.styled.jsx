@@ -13,7 +13,7 @@ export const TweetCard = styled.div`
 `;
 
 export const BackImg = styled.div`
-  height: 196px;
+  height: 214px;
   padding: 20px 20px 0 20px;
   background-image: url(${backImg2x});
   background-size: 308px;
